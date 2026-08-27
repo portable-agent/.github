@@ -1,0 +1,28 @@
+name: Ошибка
+description: Воспроизводимый дефект продукта
+title: "bug: "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемое поведение
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Фактическое поведение и шаги воспроизведения
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Версия или commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Контекст
+      description: Логи без токенов, секретов и персональных данных.
