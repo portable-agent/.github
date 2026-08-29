@@ -1,0 +1,11 @@
+site_name: Общие настройки GitHub
+site_description: Документация репозитория portable-agent/.github
+docs_dir: docs
+strict: true
+nav:
+  - Главная: index.md
+  - Архитектура: architecture.md
+  - Разработка: development.md
+  - Эксплуатация: runbook.md
+  - Решения:
+      - Документация как код: decisions/0001-docs-as-code.md

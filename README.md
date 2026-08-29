@@ -1,16 +1,35 @@
-# Portable Agent — организация GitHub
+# Общие настройки Portable Agent
 
-Этот репозиторий хранит общие настройки организации: профиль, шаблоны задач и pull request,
-политику безопасности и переиспользуемые CI/CD workflows.
+Здесь лежат общие файлы GitHub-организации `portable-agent`.
 
-## Reusable workflows
+Репозиторий отвечает за:
 
-- `reusable-java.yml` — сборка Gradle, тесты и статический анализ Java-сервисов.
-- `reusable-python.yml` — Ruff, mypy и pytest для Python-сервисов.
-- `reusable-node.yml` — lint, test и build для TypeScript-проектов на pnpm.
-- `reusable-container.yml` — OCI image, Trivy, SBOM и provenance для GHCR.
+- профиль организации;
+- шаблоны issue и pull request;
+- общие CI/CD-процессы;
+- единые правила документации и проверки репозиториев.
 
-Сервисы вызывают workflows явно по версии. Изменения здесь проходят обычный pull request review.
+Код сервисов здесь не хранится. Каждый сервис находится в своей репе.
+
+## Что где лежит
+
+- `.github/workflows/` — процессы, которые могут вызывать другие репы.
+- `reusable-docs.yml` проверяет структуру и строго собирает MkDocs.
+- `.github/ISSUE_TEMPLATE/` — шаблоны задач.
+- `profile/README.md` — главная страница организации.
+- `docs/` — правила и устройство этого репозитория.
+- `scripts/check-docs.ps1` — простая проверка обязательной документации.
+
+## Проверка
+
+```powershell
+pwsh ./scripts/check-docs.ps1
+```
+
+## Полезные ссылки
+
+- [Архитектура платформы](https://portable-agent.github.io/platform/)
+- [Все репозитории](https://github.com/orgs/portable-agent/repositories)
 
 ## Лицензия
 

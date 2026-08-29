@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: portable-agent-github
+  title: Общие настройки GitHub
+  description: Общие шаблоны, правила и CI/CD организации Portable Agent
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: portable-agent/.github
+spec:
+  type: tooling
+  lifecycle: experimental
+  owner: group:default/maintainers
+  system: portable-agent

@@ -1,0 +1,21 @@
+name: Reusable docs check
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    name: Docs quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Проверить обязательную документацию
+        shell: pwsh
+        run: ./scripts/check-docs.ps1
+      - uses: astral-sh/setup-uv@v7
+      - name: Собрать документацию
+        run: uvx --from mkdocs-material==9.7.7 mkdocs build --strict
