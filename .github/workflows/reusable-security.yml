@@ -2,6 +2,11 @@ name: Reusable security
 
 on:
   workflow_call:
+    inputs:
+      trivy-ignore-file:
+        type: string
+        default: ""
+        description: "Путь к проверенному файлу исключений Trivy внутри вызывающего репозитория."
 
 permissions:
   contents: read
@@ -27,4 +32,5 @@ jobs:
           severity: CRITICAL,HIGH
           ignore-unfixed: true
           exit-code: "1"
+          trivyignores: ${{ inputs.trivy-ignore-file }}
 
