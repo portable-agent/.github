@@ -6,6 +6,7 @@ nav:
   - Главная: index.md
   - Архитектура: architecture.md
   - Разработка: development.md
+  - Шаблон сервиса: service-template.md
   - Эксплуатация: runbook.md
   - Решения:
       - Документация как код: decisions/0001-docs-as-code.md

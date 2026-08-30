@@ -1,0 +1,23 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    uses: portable-agent/.github/.github/workflows/reusable-java.yml@main
+  security:
+    uses: portable-agent/.github/.github/workflows/reusable-security.yml@main
+  container:
+    needs: [test, security]
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write
+    uses: portable-agent/.github/.github/workflows/reusable-container.yml@main
+    with:
+      image-name: ${{ github.event.repository.name }}
+
