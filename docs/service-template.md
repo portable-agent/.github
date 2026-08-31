@@ -2,7 +2,8 @@
 
 GitHub показывает workflow templates при создании Actions workflow. Для Java, Python и Node есть
 отдельные короткие файлы, но результат одинаков: тесты, поиск секретов, Trivy, сборка контейнера,
-SBOM, provenance и keyless-подпись Cosign.
+В pull request образ проверяется локально через Trivy. При публикации из `main` добавляются SBOM,
+provenance и keyless-подпись Cosign.
 
 Папка `service-template` содержит обязательную документацию. `SERVICE.md` — быстрый индекс границ
 сервиса. Он не генерируется из кода, потому что ответственность сервиса — архитектурное решение.
