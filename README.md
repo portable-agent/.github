@@ -28,6 +28,7 @@
 
 ```powershell
 pwsh ./scripts/check-docs.ps1
+pwsh ./scripts/check-workflows.ps1
 ```
 
 ## Полезные ссылки
