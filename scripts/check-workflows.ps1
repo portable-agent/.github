@@ -37,4 +37,17 @@ foreach ($stepName in $publishSteps) {
     }
 }
 
-Write-Host "Режимы container workflow настроены корректно."
+$securityWorkflow = Get-Content -LiteralPath ".github/workflows/reusable-security.yml" -Raw
+$securityRules = @(
+    'GIT_CONFIG_KEY_0: safe.directory',
+    'GIT_CONFIG_VALUE_0: /github/workspace',
+    'version: v0.74.0'
+)
+
+foreach ($rule in $securityRules) {
+    if (-not $securityWorkflow.Contains($rule)) {
+        throw "В reusable-security.yml нет ожидаемого правила: $rule"
+    }
+}
+
+Write-Host "Общие workflows настроены корректно."

@@ -21,6 +21,10 @@ jobs:
           fetch-depth: 0
       - name: Найти случайно добавленные секреты
         uses: docker://ghcr.io/gitleaks/gitleaks:v8.30.1
+        env:
+          GIT_CONFIG_COUNT: "1"
+          GIT_CONFIG_KEY_0: safe.directory
+          GIT_CONFIG_VALUE_0: /github/workspace
         with:
           args: git --redact --verbose /github/workspace
       - name: Проверить файлы и IaC
@@ -33,4 +37,5 @@ jobs:
           ignore-unfixed: true
           exit-code: "1"
           trivyignores: ${{ inputs.trivy-ignore-file }}
+          version: v0.74.0
 

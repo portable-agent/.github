@@ -17,6 +17,7 @@
 
 - `.github/workflows/` — процессы, которые могут вызывать другие репы.
 - `reusable-docs.yml` проверяет структуру и строго собирает MkDocs.
+- `reusable-security.yml` запускает Gitleaks и закреплённую версию Trivy на чистом runner.
 - `.github/ISSUE_TEMPLATE/` — шаблоны задач.
 - `profile/README.md` — главная страница организации.
 - `docs/` — правила и устройство этого репозитория.
